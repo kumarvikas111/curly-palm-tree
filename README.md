@@ -1,2 +1,2 @@
 # curly-palm-tree
-Initial setup infos
+Initial setup inforomation.
