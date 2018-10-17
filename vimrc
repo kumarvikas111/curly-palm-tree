@@ -166,9 +166,12 @@ set nu
 set hlsearch
 set incsearch
 set smartcase
+set autoindent
+set smartindent
 set ruler
 set cursorline
 set tabstop=4
+set sw=4
 set cc=80
 set cscopetag
 set laststatus=2
