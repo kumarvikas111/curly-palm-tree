@@ -175,7 +175,8 @@ set sw=4
 set cc=80
 set cscopetag
 set laststatus=2
-set statusline+=%F
+"set statusline+=%F\ %c 
+"set statusline+=\tcol:\ %c,
 let g:highlighting = 0
 
 function! Highlighting()
@@ -188,3 +189,6 @@ function! Highlighting()
   return ":silent set hlsearch\<CR>"
 endfunction
 nnoremap <silent> <expr> <CR> Highlighting()
+
+source $HOME/.vim/cctree.vim
+source $HOME/.vim/statusline.vim
