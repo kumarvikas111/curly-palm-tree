@@ -190,6 +190,6 @@ function! Highlighting()
 endfunction
 nnoremap <silent> <expr> <CR> Highlighting()
 
-source /home/vikas/.vim/cscope.vim
-source /home/vikas/.vim/cctree.vim
-source /home/vikas/.vim/statusline.vim
+source $HOME/.vim/cscope.vim
+source $HOME/.vim/cctree.vim
+source $HOME/.vim/statusline.vim
