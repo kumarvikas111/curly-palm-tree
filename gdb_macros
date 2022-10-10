@@ -1,0 +1,9 @@
+// For More info refer  https://developer.apple.com/library/archive/documentation/DeveloperTools/gdb/gdb/gdb_9.html
+set logging on
+set logging file file
+set print address on
+set print pretty on
+set print object on
+
+macro expand expression
+macro exp expression
