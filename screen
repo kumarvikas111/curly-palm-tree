@@ -380,4 +380,9 @@ hardstatus alwayslastline
 # for blue clolor status background
 #hardstatus string '%{WB}%H %{W}| %{Y}%l %{W}| %?%{w}%-w%?%{+b g}[%{W}%{r}%n%{W} %t%?{%u}%?%{-b g}]%{W}%?%+w%?%=%{G}| %{Y}%d-%m-%Y %c:%s '
 hardstatus string '%{W}%H %{W}| %{Y}%l %{W}| %?%{w}%-w%?%{+b g}[%{W}%{r}%n%{W} %t%?{%u}%?%{-b g}]%{W}%?%+w%?%=%{G}| %{Y}%d-%m-%Y %c:%s '
+#yellow colour status line.
+hardstatus string "%{.Yr}%-w%{.rw}%n %t%{-}%+w %=%{..m} %H %{..b} %m/%d %C%a "
+#hardstatus string '%?%{w}%-w%?%{+b g}[%{W}%{r}%n%{W} %t%?{%u}%?%{+b g}]%{W}%?%+w%?%=%{G}| %{Y}%d-%m-%Y %c:%s '
+#hardstatus string '%{= .g} %H |%=%{K}%{= w}%?%{K}%-Lw%?%{r}(%{W}%{w}%n%{w}*%f%t%?(%u)%?%{r})%{w}%?%{K}%+Lw%?%= %{g}|%{B} %m-%d  %{W}%c %{g} '
+
 
