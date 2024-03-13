@@ -1,0 +1,60 @@
+p2 Service Script (/usr/local/bin/p2_script.sh):
+-----------------------------------------------------
+#!/bin/bash
+
+# Execute p2 service tasks here
+
+# Signal that p2 has reached a certain point
+touch /tmp/p2_ready.flag
+--------------------------------------------------------
+Make sure to make the script executable:
+--------------------------------------------------------
+chmod +x /usr/local/bin/p2_script.sh
+-----------------------------------------------------------
+p2 Service Unit File (/etc/systemd/system/p2.service):
+[Unit]
+Description=p2 Service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/p2_script.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+-----------------------------------------------------------
+p1 Service Unit File (/etc/systemd/system/p1.service):
+-----------------------------------------------------------
+[Unit]
+Description=p1 Service
+After=p2.service
+Requires=p2.service
+ConditionPathExists=/tmp/p2_ready.flag
+
+[Service]
+Type=simple
+ExecStart=/path/to/your/service
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+----------------------------------------------------------
+Explanation:
+
+p2 service script (p2_script.sh) executes tasks and creates a flag file /tmp/p2_ready.flag once it reaches a certain point.
+p2 service unit file ensures that the script is executed on startup.
+p1 service unit file declares a dependency on p2, and its execution is conditioned on the existence of /tmp/p2_ready.flag, ensuring that p1 won't start until p2 has reached the desired point.
+Remember to replace /path/to/your/service with the actual path to your service executable.
+--------------------------------------------------------------
+After creating or modifying these files, you'll need to reload systemd to recognize the changes:
+
+systemctl daemon-reload
+
+Then, you can start and enable both services:
+systemctl start p2.service
+systemctl enable p2.service
+
+systemctl start p1.service
+systemctl enable p1.service
+--------------------------------------------------------
